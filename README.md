@@ -1,4 +1,4 @@
-# India Demographics & Organizations Atlas
+# India NGO Map
 
 Interactive district-demographics and Ashoka Fellows / NGO explorer for India.
 
@@ -10,8 +10,8 @@ Open **[index.html](./index.html)** directly in a browser, or enable GitHub Page
 - Clustered NGO markers so multiple organizations at the same location remain selectable
 - NGO/fellow, district, state and topic browsing and search
 - City/metro to district approximations when precise organization addresses are not available
-- District demographic details from the original dataset and supplementary **Census 2011** population, religion, Scheduled Caste and Scheduled Tribe fields
-- Census figures and substitute comparisons are explicitly labelled
+- **Your supplied district demographic composition always takes precedence** where available; Census 2011 is used only as a clearly labelled fallback for districts without supplied composition data
+- Each NGO's demographic panel labels the source, distinguishing user-supplied district figures from Census 2011 fallbacks and geographic comparison proxies
 
 ## Data quality notes
 - The map contains district boundaries from a different reference period than Census 2011. Administrative districts have changed since 2011; names and boundaries may not match.
