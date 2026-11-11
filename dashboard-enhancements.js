@@ -63,7 +63,7 @@ function switchView(view){
  dashboardView=view;
  document.body.classList.toggle('insights-active',view==='insights');
  nav.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',String(b.dataset.view===view)));
- if(view==='insights')renderInsights();else{api.updateOrganizations();window.dispatchEvent(new Event('resize'))}
+ if(view==='insights')renderInsights();else{if(chartState){$('stateSelect').value=chartState;$('stateSelect').dispatchEvent(new Event('change'))}if(chartTopic){$('topicSelect').value=chartTopic;$('topicSelect').dispatchEvent(new Event('change'))}api.updateOrganizations();window.dispatchEvent(new Event('resize'))}
  location.hash=view==='insights'?'insights':'map';
 }
 nav.addEventListener('click',e=>{const b=e.target.closest('[data-view]');if(b)switchView(b.dataset.view)});
