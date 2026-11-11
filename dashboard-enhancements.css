@@ -1,0 +1,71 @@
+/* India NGO Map — editorial analytics shell */
+:root{--bg:#08111f;--panel:#101c2c;--panel2:#172538;--line:#293b50;--text:#f4f8ff;--muted:#a5b6c8;--accent:#6ae4c4}
+body{background:radial-gradient(circle at 80% -20%,#193c4d 0%,transparent 45%),#08111f;color:#f3f7ff}
+header{position:relative;z-index:6;min-height:80px;background:rgba(12,23,38,.93);backdrop-filter:blur(15px);border-bottom:1px solid #243a4c;padding:13px 26px;gap:18px}
+header h1{font-size:23px;letter-spacing:-.85px;font-weight:780}
+header p{font-size:12px;letter-spacing:.1px}
+header .tag{background:#14362f;color:#9be9d6;border-color:#28554e}
+.ngo-nav{display:flex;gap:5px;padding:5px;border-radius:14px;background:#16273a;border:1px solid #32465b;margin-left:auto}
+.ngo-nav button{background:transparent;color:#aec3d5;border:0;border-radius:10px;padding:11px 19px;font-weight:700;font-size:13px}
+.ngo-nav button:hover{color:#fff;background:#243e50}
+.ngo-nav button[aria-selected=true]{color:#081d20;background:#70e5c7;box-shadow:0 4px 18px #44c7a532}
+main{height:calc(100vh - 84px)}
+.controls{background:linear-gradient(180deg,#122134,#101b2d);padding:24px 20px;scrollbar-color:#385568 transparent}
+.controls .eyebrow{color:#69e2c3;font-size:11px;font-weight:800;letter-spacing:1.4px}
+.controls label{font-weight:600;font-size:12px;color:#b7c8d8}
+.controls select,.controls input{background:#0c1928;border:1px solid #34495c;color:#eef6fd;border-radius:10px;min-height:39px}
+.controls select:focus,.controls input:focus{border-color:#70e5c7}
+.controls .stats{gap:9px}.controls .stat{border-radius:13px;border-color:#2c4960;background:#192e41}
+.map-shell{background:radial-gradient(circle at 60% 40%,#163547,#0b1929 75%)}
+.toolbar{background:rgba(14,27,43,.9);border-bottom:1px solid #243c50}
+#drawer{background:#122135;box-shadow:-14px 0 36px #040c17a6}
+#orgBrowse{max-height:290px}
+.extra-controls{margin:20px 0;padding:18px 14px;border-radius:16px;border:1px solid #355267;background:#172b40}
+.extra-controls .two-cols{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.extra-controls .two-cols select{width:100%}
+.extra-controls .filter-helper{font-size:11px;color:#9eb4c7;line-height:1.5;margin-top:8px}
+.extra-controls .clear-filters{width:100%;background:#234a4c;border:1px solid #437b78;color:#abfbe1;border-radius:9px;padding:10px;margin-top:12px}
+.ngo-insights{display:none;overflow:auto;height:calc(100vh - 84px);background:radial-gradient(circle at 100% 0%,#1e4151 0,transparent 40%),#091422;padding:32px clamp(20px,4.5vw,72px) 70px;scrollbar-color:#3a5364 transparent}
+body.insights-active main{display:none}
+body.insights-active .ngo-insights{display:block}
+.insights-inner{max-width:1500px;margin:auto}
+.insights-kicker{font-size:11px;font-weight:800;text-transform:uppercase;color:#72e4c8;letter-spacing:2px;margin:0 0 10px}
+.insights-heading{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:end;margin-bottom:22px}
+.insights-heading h2{font-size:clamp(29px,3vw,44px);letter-spacing:-1.8px;margin:0 0 8px;font-weight:800}
+.insights-heading p{color:#a5bfd0;max-width:780px;margin:0;font-size:14px;line-height:1.6}
+.insights-heading button,.insights-filters select,.insights-filters input,.insights-export{background:#192c3c;border:1px solid #3b5c6a;color:#e5f7f6;border-radius:10px;padding:10px 14px}
+.insights-export{cursor:pointer;background:#205347;color:#b6ffe1}
+.insights-filters{display:flex;flex-wrap:wrap;align-items:end;gap:10px;margin-bottom:20px;padding:14px;border:1px solid #30475b;border-radius:15px;background:#142338}
+.insights-filters label{display:flex;flex-direction:column;gap:6px;color:#a8bcd0;font-size:11px;font-weight:750}
+.insights-filters select,.insights-filters input{font-size:13px;min-width:142px;max-width:225px}
+.insight-kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:20px}
+.insight-kpi{padding:22px;border:1px solid #2f4a5b;border-radius:17px;background:linear-gradient(160deg,#1a3042,#102030);box-shadow:0 12px 34px #030c161c}
+.insight-kpi .number{display:block;font-size:clamp(25px,2.4vw,37px);font-weight:800;letter-spacing:-1.5px;color:#f0fff9}
+.insight-kpi .caption{color:#a9c0cf;font-size:12px;line-height:1.5;margin-top:7px}
+.insight-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:17px}
+.insight-card{min-width:0;padding:23px;border:1px solid #2d4357;border-radius:18px;background:linear-gradient(135deg,#15273a,#111f31);box-shadow:0 14px 40px #010a121c}
+.insight-card.wide{grid-column:span 2}
+.insight-card h3{font-size:18px;letter-spacing:-.35px;margin:0 0 6px}
+.insight-card .explain{font-size:12px;color:#91aabc;line-height:1.6;margin:0 0 16px}
+.bar-list{display:flex;flex-direction:column;gap:12px;max-height:380px;overflow:auto;padding-right:6px}
+.bar-item{display:grid;grid-template-columns:minmax(95px,33%) 1fr 45px;gap:12px;align-items:center;font-size:12px}
+.bar-item .bar-name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#d7e8f4}
+.bar-item .bar-track{height:12px;background:#263c4e;border-radius:15px;overflow:hidden}
+.bar-item .bar-fill{height:100%;background:linear-gradient(90deg,#329e99,#78efc3);border-radius:15px;min-width:2px}
+.bar-item .bar-value{text-align:right;color:#b6ebd9;font-variant-numeric:tabular-nums;font-weight:750}
+.bar-item button{background:none;border:0;color:inherit;cursor:pointer;text-align:left;padding:0}
+.bar-item button:hover{text-decoration:underline;color:#8debd3}
+.insight-note{font-size:12px;color:#8eaabe;line-height:1.6;margin:16px 0 0}
+.insight-empty{padding:30px 10px;color:#98b4c6;font-size:13px}
+.insight-timeline{display:flex;align-items:end;gap:4px;min-height:180px;border-bottom:1px solid #395062;padding:8px 4px 0;overflow-x:auto}
+.timeline-col{height:170px;display:flex;flex:1 0 12px;max-width:44px;flex-direction:column;justify-content:end;align-items:center;cursor:pointer}
+.timeline-col .stick{width:100%;min-height:2px;background:linear-gradient(180deg,#85f3ce,#317f8b);border-radius:5px 5px 0 0}
+.timeline-col:hover .stick{background:#e4b876}
+.timeline-years{display:flex;justify-content:space-between;color:#92aabe;font-size:11px;margin-top:9px}
+.insight-table{width:100%;border-collapse:collapse;font-size:12px}
+.insight-table th{text-align:left;color:#91b1c5;padding:12px;border-bottom:1px solid #3d5365}
+.insight-table td{padding:11px 12px;border-bottom:1px solid #263b4e;color:#dce8f3}
+.insight-table button{background:none;border:0;padding:0;color:#77e6c8;cursor:pointer;text-align:left}
+.insight-table-wrap{overflow:auto;max-height:360px}
+@media(max-width:1100px){.insight-kpis{grid-template-columns:repeat(2,1fr)}.insight-grid{grid-template-columns:1fr}.insight-card.wide{grid-column:span 1}}
+@media(max-width:700px){header{padding:14px;gap:10px}.ngo-nav{order:3;margin:0;width:100%}.ngo-nav button{flex:1}.ngo-insights{height:calc(100dvh - 130px);padding:20px 14px 70px}.insight-kpis{gap:9px}.insight-kpi{padding:15px}.insight-card{padding:17px}.insights-filters label{flex:1;min-width:130px}.insights-filters select,.insights-filters input{max-width:none;width:100%}body:not(.insights-active) main{height:calc(100dvh - 130px)}}
